@@ -16,5 +16,6 @@
 # include "../LIST/list.h"
 # include "../LIBFT/libft.h"
 # include "../PRINTF/ft_printf.h"
+# include <signal.h>
 
 #endif

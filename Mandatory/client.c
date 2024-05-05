@@ -12,8 +12,37 @@
 
 #include "minitalk.h"
 
-int	main(void)
+void	send_char_to_bit (int pid, char set)
 {
-	ft_printf ("Client !");
+	int	bit;
+
+	bit = 0;
+	while (bit < 8)
+	{
+		if ((set & (0x01 << bit)) != 0)
+			kill (pid, SIGUSR1);
+		else
+			kill (pid, SIGUSR2);
+		usleep (100);
+		bit++;
+	}
+	
+}
+
+int	main(int argc, char **argv)
+{
+	int	i;
+	int	pid;
+
+	if (argc != 3)
+		return (1);
+	i = 0;
+	pid = ft_atol (argv[1]);
+	while (argv[2][i] != '\0')
+	{
+		send_char_to_bit (pid, argv[2][i]);
+		i++;
+	}
+	send_char_to_bit (pid, '\n');
 	return (0);
 }

@@ -2,15 +2,15 @@ NAMES = server
 
 NAMEC = client
 
+NAME = $(NAMEC) $(NAMES)
+
 NAME_BS = server_bonus
 
 NAME_BC = client_bonus
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra
-
-all : $(NAMES) $(NAMEC)
+all : $(NAME)
 
 bonus : $(NAME_BS) $(NAME_BC)
 

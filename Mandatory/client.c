@@ -12,21 +12,20 @@
 
 #include "minitalk.h"
 
-void	send_char_to_bit (int pid, char set)
+void	send_char_to_bit(int pid, char set)
 {
 	int	bit;
 
 	bit = 0;
 	while (bit < 8)
 	{
-		if ((set & (0x01 << bit)) != 0)
+		if ((set & (1 << bit)) != 0)
 			kill (pid, SIGUSR1);
 		else
 			kill (pid, SIGUSR2);
-		usleep (100);
+		usleep (150);
 		bit++;
 	}
-	
 }
 
 int	main(int argc, char **argv)
@@ -43,6 +42,6 @@ int	main(int argc, char **argv)
 		send_char_to_bit (pid, argv[2][i]);
 		i++;
 	}
-	send_char_to_bit (pid, '\n');
+	send_char_to_bit (pid, '\0');
 	return (0);
 }

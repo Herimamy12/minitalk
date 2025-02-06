@@ -28,7 +28,7 @@
 
 Le projet utilise un *Makefile* pour faciliter la compilation. Pour générer les exécutables du serveur et du client, il suffit d'exécuter la commande suivante :
 
-    ```bash
+    ``
     make
     ```
 
@@ -40,7 +40,7 @@ Cette commande compilera le code source et créera deux exécutables nommés *se
 
 Démarrez le serveur en premier pour qu'il puisse attendre et recevoir les messages :
 
-    ```bash
+    ``
     ./server
     ```
 
@@ -50,13 +50,13 @@ Le serveur affichera son PID (Process ID) dans le terminal, ce qui sera nécessa
 
 Ouvrez un autre terminal et exécutez le client en fournissant le PID du serveur et le message à envoyer :
 
-    ```bash
+    ``
     ./client [PID_SERVEUR] "Votre message ici"
     ```
 
 Exemple :
 
-    ```bash
+    ``
     ./client 12345 "Hello, World!"
     ```
 Le serveur recevra alors le message et l'affichera dans son terminal.
